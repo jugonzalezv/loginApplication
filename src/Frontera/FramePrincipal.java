@@ -5,6 +5,9 @@
  */
 package Frontera;
 
+import java.util.ArrayList;
+import Entidad.Usuario;
+import Entidad.Sistema;
 /**
  *
  * @author Juan
@@ -12,12 +15,14 @@ package Frontera;
 public class FramePrincipal extends javax.swing.JFrame {
         private registro registro1 = new registro();
         private Ingreso ingreso1 = new Ingreso();
-
+        public static Sistema sistema = new Sistema();
     /**
      * Creates new form FramePrincipal
      */
     public FramePrincipal() {
         initComponents();
+        inicializacion();
+        
         
     }
 
@@ -118,6 +123,8 @@ public class FramePrincipal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -147,6 +154,32 @@ public class FramePrincipal extends javax.swing.JFrame {
                 new FramePrincipal().setVisible(true);
             }
         });
+    }
+    
+    public void inicializacion(){
+    ArrayList<Usuario> usuarios = new ArrayList<Usuario>(); 
+    
+    Usuario a = new Usuario();
+    Usuario b = new Usuario();
+    Usuario c = new Usuario();
+    
+    a.setNombre("juan");
+    a.setPassword("1234");
+    b.setNombre("pedro");
+    b.setPassword("123");
+    c.setNombre("maria");
+    c.setPassword("12345");
+    
+    usuarios.add(a);
+    usuarios.add(b);
+    usuarios.add(c);
+    
+    sistema.setUsuarios(usuarios);
+    for(Usuario u: sistema.getUsuarios()){
+            System.out.println(u.getNombre());
+            System.out.println(u.getPassword());
+            System.out.println("-----------");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
